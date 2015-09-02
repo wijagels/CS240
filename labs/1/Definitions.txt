@@ -1,0 +1,19 @@
+ls
+    ls is used to see what's in a directory.  By default, it just checks what's in the directory you're currently in.  However, you can also specify a directory to list using it's relative or absolute path.
+    I didn't know that you could also specify how things are sorted with the --sort option.
+
+mkdir
+    mkdir is used to initialize a new directory in the filesystem using an absolute or relative path.
+    I didn't know that you could also use -p to create multiple nested directories at once.
+
+rmdir
+    rmdir is the opposite of mkdir, it destroys directories in the filesystem.  It will not work if the directory is not empty.
+    I didn't know that rmdir also has the -p flag which will remove a bunch of empty directories quickly.
+
+find
+    find is useful for finding files that match patterns or other parameters that can be found in inodes.  You can go use find to quickly locate a file you know something about or to generate a list of files to be piped into another command.
+    I didn't know the syntax of find, but now I do.
+
+mv
+    mv changes the location of files or directories on the filesystem.  To speed things up, if it's in the same partition, it will just change inode attributes instead of wasting time deleting and remaking the file.
+    I didn't know that there was a backup option, this might come in useful.
