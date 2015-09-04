@@ -2,7 +2,7 @@
 
 Hello_Class::Hello_Class(int i) {
     if (i == 0) {
-        output_string = "Hello C++ Data Structures!";
+        output_string = "Hello C++ Data Structures,from William Jagels!";
     } else {
         output_string = "Hello Data Structures!";
     }
