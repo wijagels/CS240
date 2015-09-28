@@ -1,0 +1,33 @@
+Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Enter last name, first name, street name, town, zip, age, and street number.
+Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Account Info
+William Jagels age 25
+1000 Main Binghamton 13902
+Current Balance: $0.00
+
+Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Enter amount to deposit: Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Current Balance: $10000.00
+Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Enter amount to withdraw: Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Current Balance: $9900.00
+Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Enter last name, first name, street name, town, zip, age, and street number.
+Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: Account Info
+Patrick Madden age 30
+1001 Main Binghamton 13902
+Current Balance: $9900.00
+
+Enter a command.
+Choose from ["New" "View" "Update" "Deposit" "Withdraw" "Balance" "Quit"]
+: 

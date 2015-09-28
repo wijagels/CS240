@@ -1,0 +1,1070 @@
+#include "JagelsWilliamAccountFunctions.h"
+
+
+void update(std::string &lname,std::string &fname, std::string &sname, std::string &town, std::string &zip, int &age, int &streetNumber) {
+    std::cout << "Enter last name, first name, street name, town, zip, age, and street number." << std::endl;
+    std::cin >> lname>> fname>> sname>> town>> zip>> age>> streetNumber;
+}
+
+void resetBal(float &bal) {
+    bal = 0;
+}
+
+void balance(const float &bal) {
+    std::cout << "Current Balance:";
+    printf(" $%.2f\n", bal);
+}
+
+void deposit(float &bal) {
+    float add;
+    std::cout << "Enter amount to deposit: ";
+    std::cin >> add;
+    bal += add;
+}
+
+void withdraw(float &bal) {
+    float remove;
+    std::cout << "Enter amount to withdraw: ";
+    std::cin >> remove;
+    bal -= remove;
+}
+
+void view(const std::string &lname, const std::string &fname, const std::string &sname, const std::string &town, const std::string &zip, const int &age, const int &streetNumber, const float bal) {
+    std::cout << "Account Info" << std::endl;
+    std::cout << fname << " " << lname;
+    std::cout << " age " << age << std::endl;
+    std::cout << streetNumber << " " << sname << " "
+        << town << " " << zip << std::endl;
+    std::cout << "Current Balance:";
+    printf(" $%.2f\n\n", bal);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ * GNU's not unix
+ */

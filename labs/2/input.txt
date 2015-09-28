@@ -1,0 +1,13 @@
+New
+Jagels William Main Binghamton 13902 25 1000
+View
+Deposit
+10000.00
+Balance
+Withdraw
+100.00
+Balance
+Update
+Madden Patrick Main Binghamton 13902 30 1001
+View
+Quit
