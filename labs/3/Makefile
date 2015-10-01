@@ -1,5 +1,5 @@
 CPPC=clang++
-CFLAGS=-std=c++11
+CFLAGS=-std=c++11 -g
 SOURCES=Bank.cpp Customer.cpp
 OBJ=Bank.o Customer.o
 OUTPUT=Bank
@@ -17,6 +17,8 @@ linker: gen_obj
 gen_obj: $(SOURCES)
 	$(CPPC) $(CFLAGS) -c $(SOURCES)
 
+test: linker
+	valgrind ./$(OUTPUT) 10 test.bank
 # Specify the object files and executables that are generated
 # and need to be removed to re-compile the whole thing
 clean:

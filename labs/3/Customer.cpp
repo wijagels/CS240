@@ -1,8 +1,32 @@
 #include "Customer.h"
 
-Customer::Customer(int i) {
-    age = i;
+
+Customer::Customer() {
 }
-void Customer::add(int i) {
-    printf("%d\n", i);
+
+Customer::Customer(std::string id) {
+    userid = id;
+}
+
+Customer::~Customer() {
+}
+
+std::string Customer::getId() {
+    return userid;
+}
+
+int Customer::login() {
+    std::string pw;
+    std::cout << "Enter password: " << std::endl << "# ";
+    std::getline(std::cin, pw);
+    while(true) {
+        std::string arg;
+        std::cout << "Choose from ['New', 'Login', 'Save', 'Load', 'Quit']" << std::endl << "$ ";
+        std::cin >> arg;
+        // Don't go nuts when C-d is pressed
+        if(arg == "Quit" || std::cin.eof()) {
+            return 0;
+        }
+    }
+    return 0;
 }
