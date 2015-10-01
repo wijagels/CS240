@@ -1,25 +1,31 @@
-CPPC=clang++
+# Use ccache+clang++ so compilation doesn't take 5 years
+ifdef CACHEDCC
+CPPC=ccache clang++
+else
+CPPC=g++
+endif
+
 CFLAGS=-std=c++11 -g
 SOURCES=Bank.cpp Customer.cpp
 OBJ=Bank.o Customer.o
 OUTPUT=Bank
-#
-# Specifiy the target
+
+
 all:	linker
 	echo $(SOURCES)
 
-# Specify the object files that the target depends on
-# Also specify the object files needed to create the executable
 linker: gen_obj
 	$(CPPC) $(CFLAGS) $(OBJ) -o $(OUTPUT)
 
-# Specify how the object files should be created from source files
+# Build object files one by one to
+# take advantage of caching
 gen_obj: $(SOURCES)
-	$(CPPC) $(CFLAGS) -c $(SOURCES)
+	for file in $(SOURCES); do\
+		$(CPPC) $(CFLAGS) -c $$file;\
+	done
 
 test: linker
-	valgrind ./$(OUTPUT) 10 test.bank
-# Specify the object files and executables that are generated
-# and need to be removed to re-compile the whole thing
+	valgrind ./$(OUTPUT) 5 test.bank
+
 clean:
 	rm *.o $(OUTPUT)

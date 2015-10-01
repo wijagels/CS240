@@ -24,14 +24,21 @@ int main(int argc, const char* argv[]) {
 }
 
 Bank::Bank(int i) {
-    if(i <= 0)
+    if(i <= 0) {
         throw std::invalid_argument("Negative size is not valid or NaN");
+    }
+    if(i > MAX_CUSTOMERS) {
+        throw std::invalid_argument("Max customers is too large");
+    }
     size = i;
 }
 
 Bank::Bank(int i, const char* file) {
     if(i <= 0) {
         throw std::invalid_argument("Negative size is not valid or NaN");
+    }
+    if(i > MAX_CUSTOMERS) {
+        throw std::invalid_argument("Max customers is too large");
     }
     size = i;
     std::ifstream f;
@@ -55,11 +62,20 @@ int Bank::cmdLoop() {
         if(arg == "Quit" || std::cin.eof()) {
             return 0;
         }
+        else if(arg == "New") {
+            newAccount();
+        }
         else if(arg == "Login") {
             login();
         }
-        else if(arg == "New") {
-            newAccount();
+        else if(arg == "Save") {
+            save();
+        }
+        else if(arg == "Load") {
+            load();
+        }
+        else {
+            std::cout << "Invalid command!" << std::endl;
         }
     }
     return 1;
@@ -93,11 +109,16 @@ int Bank::newAccount() {
     }
     for(Customer& c : customers) {
         if(c.getId() == id) {
+            std::cout << "User already exists" << std::endl;
+            return 1;
         }
     }
     Customer *c = new Customer(id);
-    customers.push_back(*c);
-    return 0;
+    if(c -> isOk) {
+        customers.push_back(*c);
+        return 0;
+    }
+    return 1;
 }
 
 unsigned int Bank::curSize() {
@@ -109,4 +130,63 @@ unsigned int Bank::curSize() {
             return s;
     }
     return s;
+}
+
+void Bank::save() {
+    std::cout << "Enter filename: " << std::endl;
+    std::string filename;
+    std::getline(std::cin, filename);
+    std::ofstream out;
+    out.open(filename);
+    for(Customer& c: customers) {
+        if(!c.getId().empty())
+            out << c.getString() << std::endl;
+    }
+    out.close();
+}
+
+void Bank::load() {
+    std::cout << "Enter filename: " << std::endl;
+    std::string filename;
+    std::getline(std::cin, filename);
+    load(filename);
+}
+
+void Bank::load(std::string filename) {
+    std::ifstream in;
+    in.open(filename);
+    if(in.is_open()) {
+        while(!in.eof()) {
+            std::string lname;
+            std::string fname;
+            std::string userid;
+            std::string password;
+            unsigned int age;
+            unsigned int streetnum;
+            std::string streetname;
+            std::string town;
+            std::string zip;
+
+            std::string temp;
+            std::string temp2;
+
+            getline(in, lname);
+            getline(in, fname);
+            getline(in, userid);
+            getline(in, password);
+            getline(in, temp);
+            age = atoi(temp.c_str());
+            getline(in, temp2);
+            streetnum = atoi(temp2.c_str());
+            getline(in, streetname);
+            getline(in, town);
+            getline(in, zip);
+            if(curSize() >= size) {
+                std::cout << "Yellen says no more customers allowed!" << std::endl;
+                return;
+            }
+            Customer *c = new Customer(lname, fname, userid, password, age, streetnum, streetname, town, zip);
+            customers.push_back(*c);
+        }
+    }
 }

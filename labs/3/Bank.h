@@ -5,6 +5,7 @@
 
 
 class Bank {
+    const int MAX_CUSTOMERS = 1000;
     public:
         Bank(int);
         Bank(int, const char*);
@@ -15,6 +16,7 @@ class Bank {
         int login();
         void save();
         void load();
+        void load(std::string);
         unsigned int curSize();
         /* Variables */
         unsigned int size;
