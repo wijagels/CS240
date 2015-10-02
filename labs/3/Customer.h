@@ -9,11 +9,26 @@ const std::regex zip_re("^\\d{5}$");
 const std::regex pass_re("^(?=.*[ -~])(?=.*[ -@[-`{-~]).{6,}$");
 const std::regex loc_re("^[\\w\\t ]+$");
 
+enum State {
+    NY,
+    PA,
+    CT,
+    RI,
+    MA,
+    VT,
+    NH,
+    ME,
+    WRONG
+};
+
+std::string printState(State);
+State makeState(std::string);
+
 class Customer {
     public:
         Customer();
         Customer(std::string);
-        Customer(std::string, std::string, std::string, std::string, unsigned int, unsigned int, std::string, std::string, std::string);
+        Customer(std::string, std::string, std::string, std::string, unsigned int, unsigned int, std::string, std::string, std::string, State);
         ~Customer();
         std::string getString();
         int login();
@@ -37,14 +52,5 @@ class Customer {
         std::string town;
         std::string zip;
         float bal;
-        enum State {
-            NY,
-            PA,
-            CT,
-            RI,
-            MA,
-            VT,
-            NH,
-            ME
-        };
+        State state;
 };

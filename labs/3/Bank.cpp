@@ -7,14 +7,12 @@ int main(int argc, const char* argv[]) {
             // Stringstream would be ~20x slower than atoi.
             Bank *b = new Bank(atoi(argv[1]));
             b -> cmdLoop();
-            delete b;
             return 0;
         }
         case 3:
         {
             Bank *b = new Bank(atoi(argv[1]), argv[2]);
             b -> cmdLoop();
-            delete b;
             return 0;
         }
         default:
@@ -41,12 +39,8 @@ Bank::Bank(int i, const char* file) {
         throw std::invalid_argument("Max customers is too large");
     }
     size = i;
-    std::ifstream f;
-    f.open(file);
-    if(f.is_open()) {
-        std::cout << "File " << file << " opened" << std::endl;
-    }
-    f.close();
+    std::string b(file);
+    load(b);
 }
 
 Bank::~Bank() {
@@ -59,8 +53,21 @@ int Bank::cmdLoop() {
         std::cout << "Choose from ['New', 'Login', 'Save', 'Load', 'Quit']" << std::endl << "$ ";
         std::getline(std::cin, arg);
         // Don't go nuts when C-d is pressed
-        if(arg == "Quit" || std::cin.eof()) {
+        if(std::cin.eof()) {
             return 0;
+        }
+        if(arg == "Quit") {
+            while(true) {
+                std::cout << "Save before quitting? [yes/no]" << std::endl;
+                std::string ans;
+                getline(std::cin, ans);
+                if(ans == "no")
+                    return 0;
+                else if(ans == "yes") {
+                    save();
+                    return 0;
+                }
+            }
         }
         else if(arg == "New") {
             newAccount();
@@ -166,6 +173,7 @@ void Bank::load(std::string filename) {
             std::string streetname;
             std::string town;
             std::string zip;
+            std::string state;
 
             std::string temp;
             std::string temp2;
@@ -181,11 +189,19 @@ void Bank::load(std::string filename) {
             getline(in, streetname);
             getline(in, town);
             getline(in, zip);
+            getline(in, state);
+            State st = makeState(state);
             if(curSize() >= size) {
                 std::cout << "Yellen says no more customers allowed!" << std::endl;
                 return;
             }
-            Customer *c = new Customer(lname, fname, userid, password, age, streetnum, streetname, town, zip);
+            for(Customer& c : customers) {
+                if(c.getId() == userid) {
+                    std::cout << "User already exists" << std::endl;
+                    return;
+                }
+            }
+            Customer *c = new Customer(lname, fname, userid, password, age, streetnum, streetname, town, zip, st);
             customers.push_back(*c);
         }
     }

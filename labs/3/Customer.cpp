@@ -70,10 +70,19 @@ Customer::Customer(std::string id) {
         return;
     }
     streetname = street;
+
+    std::string st;
+    std::cout << "Enter State:" << std::endl << "# ";
+    std::getline(std::cin, st);
+    if(makeState(st) == State::WRONG) {
+        std::cout << "Invalid state" << std::endl;
+        return;
+    }
+    state = makeState(st);
     isOk = true;
 }
 
-Customer::Customer(std::string lname, std::string fname, std::string userid, std::string password, unsigned int age, unsigned int streetnum, std::string streetname, std::string town, std::string zip) {
+Customer::Customer(std::string lname, std::string fname, std::string userid, std::string password, unsigned int age, unsigned int streetnum, std::string streetname, std::string town, std::string zip, State state) {
     this->lname = lname;
     this->fname = fname;
     this->userid = userid;
@@ -83,6 +92,7 @@ Customer::Customer(std::string lname, std::string fname, std::string userid, std
     this->streetname = streetname;
     this->town = town;
     this->zip = zip;
+    this->state = state;
 }
 
 Customer::~Customer() {
@@ -93,7 +103,8 @@ std::string Customer::getString() {
     s += lname + "\n" + fname + "\n";
     s += userid + "\n" + password + "\n";
     s += std::to_string(age) + "\n" + std::to_string(streetnum) + "\n";
-    s += streetname + "\n" + town + "\n" + zip;
+    s += streetname + "\n" + town + "\n" + zip + "\n";
+    s += printState(state);
     return s;
 }
 
@@ -115,6 +126,8 @@ int Customer::login() {
         std::cin >> arg;
         // Don't go nuts when C-d is pressed
         if(arg == "Logout" || std::cin.eof()) {
+            std::cout << "Logout" << std::endl;
+            std::cin.ignore();
             return 0;
         }
         else if(arg == "Update") {
@@ -213,6 +226,16 @@ void Customer::update() {
         }
         streetname = street;
     }
+    std::string st;
+    std::cout << "Enter State:" << std::endl << "# ";
+    std::getline(std::cin, st);
+    if(!st.empty()) {
+        if(makeState(st) == State::WRONG) {
+            std::cout << "Invalid state" << std::endl;
+            return;
+        }
+        state = makeState(st);
+    }
 }
 
 void Customer::passwd() {
@@ -242,7 +265,7 @@ void Customer::view() {
     printf("%s %s's balance: $%.2f\n", fname.c_str(), lname.c_str(), bal);
     printf("Age: %d, id: %s, Password: %s\n", age, userid.c_str(), password.c_str());
     //TODO: state enumeration
-    printf("Address: %d %s, %s, %s %s\n\n", streetnum, streetname.c_str(), town.c_str(), "NY", zip.c_str());
+    printf("Address: %d %s, %s, %s %s\n\n", streetnum, streetname.c_str(), town.c_str(), printState(state).c_str(), zip.c_str());
 }
 
 void Customer::deposit() {
@@ -273,4 +296,47 @@ void Customer::withdraw() {
 
 void Customer::balance() {
     printf("%s $%.2f\n", lname.c_str(), bal);
+}
+
+std::string printState(State s) {
+    switch(s) {
+        case NY:
+            return "NY";
+        case PA:
+            return "PA";
+        case CT:
+            return "CT";
+        case RI:
+            return "RI";
+        case MA:
+            return "MA";
+        case VT:
+            return "VT";
+        case NH:
+            return "NH";
+        case ME:
+            return "ME";
+        default:
+            return "";
+    }
+}
+
+State makeState(std::string s) {
+    if(s == "NY")
+        return NY;
+    if(s == "PA")
+        return PA;
+    if(s == "CT")
+        return CT;
+    if(s == "RI")
+        return RI;
+    if(s == "MA")
+        return MA;
+    if(s == "VT")
+        return VT;
+    if(s == "NH")
+        return NH;
+    if(s == "ME")
+        return ME;
+    return WRONG;
 }
