@@ -1,0 +1,58 @@
+1.
+    a.
+        int *ip = &i;
+        int **ipp = &ip;
+    b.
+        ip is set to the address of i.  Then, ipp is set to the address of ipp.  So when cout is called, **ipp points to ip which points to i.
+
+2.
+    a.
+        g++ -fpermissive cast.cpp -o cast.exe
+    b.
+        Without cast: 51
+        Cast 1: 102
+        Cast 2: 408
+    c.
+        i: 0
+        dp: 2000
+        dbp: 2000
+        cp: 1000
+        cbp: 1000
+    d.
+        i: 0
+        dp: 2048
+        dbp: 2000
+        cp: 1051
+        cbp: 1000
+    e.
+        The pointers, when cast, will change their increment size.  A double occupies 8 bytes, while a char only occupies a single octet.  Then with casts, the pointer is interpreted first as a pointer to 4 octets, and then as 4 octets.  Meanwhile, the pointer itself is supposed to be pointing to an 8 octet piece of memory, and the pointer itself will be 8 octets wide on a 64-bit machine.  Chopping off 4 octets causes isn't generally a great idea, hence the differing values.
+3.
+    a.
+        This passes 0 into func1, which turns it into 11111 which is passed into func2 which turns it into 22222 which is passed into func3 which turns it into 33333.  Ultimately, the same number is just changed thrice.  The return value is also the same (33333) because all the returns lead to the return of func3, which is 33333
+    b.
+        Delete the ampersand at line 4.  This works because it stops func3 from modifying the int created at line 20.
+    c.
+        No, because you'd have to at least comment out lines 5 and 10, which is a hefty 4 characters.
+4.
+    Compilation simply turns a cpp file into object code, which contains all the instructions to execute different functions within your cpp file.  However, without a link to other functions it may depend on, it's pretty useless on its own.  If you compile two files, MyClass.cpp and UseMyClass.cpp, you'll end up with to .o files if you use g++ -c MyClass.cpp UseMyClass.cpp.  By linking the two together with g++ MyClass.o UseMyClass.o, you end up with a single executable which will allow UseMyClass's main function to use anything included in MyClass.
+5.
+    a.
+        int main() {
+            static CS240 rocks;
+        }
+    b.
+        void f() {
+            CS240 rocks;
+        }
+        int main() {
+            f();
+        }
+    c.
+        int main() {
+            CS240* rocks = new CS240;
+        }
+6.
+    a.
+        Before the return in getFloatArrayTwo, the values are what they were set to.  However, since myFloatArray wasn't allocated, it is destroyed when the method exits.  The pointer still exists, but it points to a block of memory that is now nonsense.
+    b.
+        delete statements should be placed in the last two lines of the main function.
