@@ -10,7 +10,7 @@ class Story {
         Story& operator--();
         Story operator++(int);
         Story operator--(int);
-        std::ostream& operator<<(const Story&);
+        friend std::ostream& operator<<(std::ostream&, const Story&);
         Story* next;
         Paragraph first();
         Paragraph rest();

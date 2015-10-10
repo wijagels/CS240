@@ -10,8 +10,8 @@ class Paragraph {
         Paragraph& operator--();
         Paragraph operator++(int);
         Paragraph operator--(int);
-        std::ostream& operator<<(const Paragraph&);
         Paragraph* next;
+        friend std::ostream& operator<<(std::ostream&, const Paragraph&);
         Sentence first();
         Sentence rest();
     private:

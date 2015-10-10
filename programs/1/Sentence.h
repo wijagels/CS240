@@ -10,8 +10,8 @@ class Sentence {
         Sentence& operator--();
         Sentence operator++(int);
         Sentence operator--(int);
-        std::ostream& operator<<(const Sentence&);
         Word* next;
+        friend std::ostream& operator<<(std::ostream&, const Sentence&);
         Word first();
         Word rest();
     private:

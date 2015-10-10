@@ -11,8 +11,8 @@ class Word {
         Word& operator--();
         Word operator++(int);
         Word operator--(int);
-        std::ostream& operator<<(const Word&);
         Word* next;
+        friend std::ostream& operator<<(std::ostream&, const Word&);
    private:
         char str[];
 };
