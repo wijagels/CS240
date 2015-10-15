@@ -5,6 +5,7 @@
 class Word {
     public:
         Word();
+        Word(const char*);
         Word operator+(const Word&);
         Word operator+(const int&);
         Word& operator++();
@@ -13,6 +14,7 @@ class Word {
         Word operator--(int);
         Word* next;
         friend std::ostream& operator<<(std::ostream&, const Word&);
-   private:
-        char str[];
+        char* str;
 };
+
+int strlen(const char string[]);

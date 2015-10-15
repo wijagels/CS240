@@ -96,6 +96,7 @@ Customer::Customer(std::string lname, std::string fname, std::string userid, std
 }
 
 Customer::~Customer() {
+    std::cout << "Destructor call" << std::endl;
 }
 
 std::string Customer::getString() {

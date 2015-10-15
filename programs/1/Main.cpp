@@ -1,3 +1,6 @@
+#include "Word.h"
+
 int main() {
-    return 0;
+    Word w = Word("hello, world");
+    std::cout << w << std::endl;
 }

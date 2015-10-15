@@ -29,3 +29,7 @@
 
 # Tags files
 tags
+
+# Core dumps
+core
+vgcore.*
