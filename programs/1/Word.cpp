@@ -1,28 +1,26 @@
 #include "Word.h"
+#include "Aux.h"
 
-Word::Word(const char* string) {
-    const char* stringcopy = string;
-    int count = 0;
-    while(*stringcopy != '\0') {
-        count++;
-        stringcopy++;
-    }
-    str = new char[count+1];
-    for(int i=0;i<count+1;i++) {
-        str[i] = string[i];
-    }
+Word::Word() : Word("hello"){
 }
 
-Word Word::operator+(const Word& other) {
-    char ns[strlen(this->str) + strlen(other.str)];
-    return Word(ns);
+Word::Word(const char* string) {
+    this->str = copystr(string);
+    this->next = nullptr;
+}
+
+Word::~Word() {
+    delete[] str;
+}
+
+Sentence Word::operator+(const Word& other) {
+    Word* w = new Word(other);
+    Word* ret = new Word(*this);
+    ret->next = w;
+    return Sentence(*ret);
 }
 
 std::ostream& operator<<(std::ostream& st, const Word& w) {
     st << w.str;
     return st;
-}
-
-int strlen(const char string[]) {
-    return 1;
 }

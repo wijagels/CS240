@@ -1,14 +1,14 @@
 # Use ccache+clang++ so compilation doesn't take 5 years
 ifdef CACHEDCC
-CPPC=ccache clang++
+CPPC=clang++
 else
 CPPC=g++
 endif
 
 CFLAGS=-std=c++11 -g
-SOURCES=Word.cpp Sentence.cpp Paragraph.cpp Story.cpp Main.cpp
+SOURCES=Word.cpp Sentence.cpp Paragraph.cpp Story.cpp Aux.cpp Main.cpp
 
-OBJ=Word.o Sentence.o Paragraph.o Story.o Main.o
+OBJ=Word.o Sentence.o Paragraph.o Story.o Aux.o Main.o
 
 OUTPUT=prog1
 

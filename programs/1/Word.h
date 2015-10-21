@@ -1,12 +1,17 @@
-#pragma once
 #include <stdio.h>
 #include <iostream>
+class Word;
+class Sentence;
 
+#ifndef WORD_INCLUDE
+#define WORD_INCLUDE
+#include "Sentence.h"
 class Word {
     public:
         Word();
+        ~Word();
         Word(const char*);
-        Word operator+(const Word&);
+        Sentence operator+(const Word&);
         Word operator+(const int&);
         Word& operator++();
         Word& operator--();
@@ -16,5 +21,4 @@ class Word {
         friend std::ostream& operator<<(std::ostream&, const Word&);
         char* str;
 };
-
-int strlen(const char string[]);
+#endif
