@@ -1,11 +1,18 @@
 #include "Word.h"
 #include "Aux.h"
 
-Word::Word() : Word("hello"){
+Word::Word() {
+    this->str = nullptr;
+    this->next = nullptr;
 }
 
 Word::Word(const char* string) {
     this->str = copystr(string);
+    this->next = nullptr;
+}
+
+Word::Word(const Word& other) {
+    this->str = copystr(other.str);
     this->next = nullptr;
 }
 

@@ -8,20 +8,26 @@ class Sentence {
     public:
         Sentence();
         ~Sentence();
+        /**
+         * Overrides the default copy constructor
+         * in favor of a deep copy
+         */
         Sentence(const Sentence&);
         Sentence(const Word&);
+        void append(const Word&);
         Sentence operator+(const Sentence&);
         Sentence operator+(const int&);
         Sentence& operator++();
         Sentence& operator--();
         Sentence operator++(int);
         Sentence operator--(int);
-        Sentence* next;
+        Sentence* next = nullptr;
         friend std::ostream& operator<<(std::ostream&, const Sentence&);
         Word first();
         Word rest();
-    private:
-        Word* head;
-        Word* tail;
+        void setTerm(const char&);
+        char terminator = '.';
+        Word* head = nullptr;
+        Word* tail = nullptr;
 };
 #endif

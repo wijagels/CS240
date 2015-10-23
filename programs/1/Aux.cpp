@@ -14,5 +14,6 @@ char* copystr(const char* s) {
     for(int i=0;i<strlen(s);i++) {
         n[i] = s[i];
     }
+    n[strlen(s)] = '\0';
     return n;
 }

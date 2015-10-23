@@ -4,6 +4,7 @@ Sentence::Sentence() {
     this->head = nullptr;
     this->tail = nullptr;
     this->next = nullptr;
+    this->terminator = '.';
 }
 
 Sentence::~Sentence() {
@@ -21,7 +22,7 @@ Sentence::Sentence(const Word& head) {
     const Word* w = &head;
     Word* insert = this->head;
     w = w->next;
-    while(w != nullptr) {
+    while(w) {
         insert->next = new Word(*w);
         insert = insert->next;
         w = w->next;
@@ -32,6 +33,14 @@ Sentence::Sentence(const Word& head) {
 Sentence::Sentence(const Sentence& s) {
     Word* w = s.head;
     this->head = new Word(*w);
+    Word* cur = this->head;
+    w = w->next;
+    while(w) {
+        cur->next = new Word(*w);
+        cur = cur->next;
+        w = w->next;
+    }
+    this->tail = cur;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Sentence& s) {
@@ -41,7 +50,24 @@ std::ostream& operator<<(std::ostream& stream, const Sentence& s) {
         w = w->next;
         if(w) stream << " ";
     }
+    stream << s.terminator;
+    std::cout << "term here: " << s.terminator << std::endl;
     return stream;
+}
+
+void Sentence::append(const Word& other) {
+    if(!this->head) {
+        this->head = new Word(other);
+        this->tail = this->head;
+    }
+    else {
+        this->tail->next = new Word(other);
+        this->tail = this->tail->next;
+    }
+}
+
+void Sentence::setTerm(const char& c) {
+    this->terminator = char(c);
 }
 
 Sentence Sentence::operator+(const Sentence& other) {
