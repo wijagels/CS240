@@ -26,8 +26,9 @@ class Sentence {
         Word first();
         Word rest();
         void setTerm(const char&);
-        char terminator = '.';
         Word* head = nullptr;
         Word* tail = nullptr;
+    private:
+        char terminator;
 };
 #endif

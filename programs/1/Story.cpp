@@ -49,13 +49,11 @@ Story::Story(char* str) {
             Sentence sentence = Sentence();
             Paragraph par = Paragraph();
             while(std::getline(ss, word, ' ')) {
-                std::cout << word << std::endl;
                 int loc = word.find('.');
                 if(loc==-1) loc = word.find('?');
                 if(loc==-1) loc = word.find('!');
                 if(loc != -1) {
                     sentence.setTerm(word.at(loc));
-                    std::cout << "terminator: " << sentence.terminator<<std::endl;
                     word.erase(loc);
                     sentence.append(Word(word.c_str()));
                     par.append(sentence);
@@ -70,7 +68,6 @@ Story::Story(char* str) {
     }
     else
         std::cout << "File failed to open" << std::endl;
-    std::cout << *this << std::endl;
 }
 
 void Story::append(const Paragraph& other) {
@@ -90,6 +87,7 @@ std::ostream& operator<<(std::ostream& stream, const Story& story) {
         stream << *p;
         p = p->next;
         if(p) stream << "\n\n";
+        else stream << "\n";
     }
     return stream;
 }

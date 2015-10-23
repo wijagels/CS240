@@ -4,7 +4,7 @@ Sentence::Sentence() {
     this->head = nullptr;
     this->tail = nullptr;
     this->next = nullptr;
-    this->terminator = '.';
+    //this->terminator = '.';
 }
 
 Sentence::~Sentence() {
@@ -41,6 +41,7 @@ Sentence::Sentence(const Sentence& s) {
         w = w->next;
     }
     this->tail = cur;
+    this->terminator = s.terminator;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Sentence& s) {
@@ -50,8 +51,7 @@ std::ostream& operator<<(std::ostream& stream, const Sentence& s) {
         w = w->next;
         if(w) stream << " ";
     }
-    stream << s.terminator;
-    std::cout << "term here: " << s.terminator << std::endl;
+    if(s.terminator) stream << s.terminator;
     return stream;
 }
 

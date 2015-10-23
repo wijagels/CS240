@@ -59,7 +59,8 @@ std::ostream& operator<<(std::ostream& stream, const Paragraph& p) {
     while(s) {
         stream << *s;
         s = s->next;
-        if(s) stream << " ";
+        /*if(s)*/ stream << " ";
+        /* ^ Trailing spaces, EW GROSS! :( */
     }
     return stream;
 }
