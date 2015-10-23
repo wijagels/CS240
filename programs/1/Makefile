@@ -23,6 +23,9 @@ gen_obj: $(SOURCES)
 
 test: linker
 	valgrind ./$(OUTPUT)
+	diff fp.txt ./STORIES/FreshPrince.txt
+	diff br.txt ./STORIES/Brady.txt
+	diff gi.txt ./STORIES/Gilligan.txt
 
 clean:
 	rm *.o $(OUTPUT)

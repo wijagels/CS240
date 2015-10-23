@@ -9,7 +9,7 @@ Sentence::Sentence() {
 
 Sentence::~Sentence() {
     Word* w = this->head;
-    Word *b;
+    Word* b;
     while(w) {
         b = w->next;
         delete(w);
