@@ -52,7 +52,7 @@ bool Sorter::insert(int element) {
 
 Sorter::~Sorter() {
    if (array) {
-      delete array;
+      delete[] array; // This line was wrong.
       numElements = 0;
    }
 }
