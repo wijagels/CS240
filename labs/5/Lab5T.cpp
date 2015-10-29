@@ -57,7 +57,7 @@ int main (int argc, char **argv) {
    s.bubbleSortI();
    cout << "After iterative Bubble Sort:";
    s.show(25, 10);
-
+/* // Uncomment to make your computer hurt
    s.shuffle();
    cout << "Shuffled: ";
    s.show(25, 10);
@@ -65,5 +65,6 @@ int main (int argc, char **argv) {
    s.stupidSortI();
    cout << "After iterative Stupid Sort:";
    s.show(25, 10);
+*/
 }
 

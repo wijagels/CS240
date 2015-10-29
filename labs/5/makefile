@@ -24,8 +24,11 @@ TSorter.o: TSorter.cpp TSorter.h
 Lab5T.o: Lab5T.cpp TSorter.h TSorter.cpp
 	$(CXX) $(FLAGS) -c Lab5T.cpp -o Lab5T.o
 
-test: Lab5T
+test: Lab5T Lab5
+	echo "---------Begin Lab5T---------"
 	./Lab5T
+	echo "---------Begin Lab5---------"
+	./Lab5
 
 clean:
 	rm -f *.o Lab5 Lab5T

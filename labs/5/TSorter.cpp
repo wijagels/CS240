@@ -32,9 +32,15 @@ void TSorter<T>::shuffle() {
 // Show the first n elements, k per line, using <<
 template <typename T>
 void TSorter<T>::show(unsigned int n, unsigned int k) {
+    unsigned int c = 0;
     cout << endl;
     for(auto i : array) {
         cout << i << " ";
+        if(!(c % k) && c != 0)
+            cout << endl;
+        if(c > n)
+            break;
+        ++c;
     }
     cout << endl <<endl;
 }
