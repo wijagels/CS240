@@ -4,6 +4,11 @@ class Sentence;
 #ifndef SENTENCE_INCLUDE
 #define SENTENCE_INCLUDE
 #include "Word.h"
+#include "Paragraph.h"
+
+class Word;
+class Paragraph;
+
 class Sentence {
     public:
         Sentence();
@@ -15,7 +20,9 @@ class Sentence {
         Sentence(const Sentence&);
         Sentence(const Word&);
         void append(const Word&);
-        Sentence operator+(const Sentence&);
+        void prepend(const Word&);
+        Paragraph operator+(const Sentence&);
+        Paragraph operator+(const Paragraph&);
         Sentence operator+(const int&);
         Sentence& operator++();
         Sentence& operator--();
@@ -24,11 +31,11 @@ class Sentence {
         Sentence* next = nullptr;
         friend std::ostream& operator<<(std::ostream&, const Sentence&);
         Word first();
-        Word rest();
+        Sentence rest();
         void setTerm(const char&);
         Word* head = nullptr;
         Word* tail = nullptr;
     private:
-        char terminator;
+        char terminator = '.';
 };
 #endif

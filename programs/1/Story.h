@@ -16,12 +16,15 @@ class Word;
 class Story {
     public:
         Story();
+        Story(const Story&);
         Story(const Paragraph&);
         Story(char*);
         ~Story();
         void save(char*);
         void append(const Paragraph&);
+        void prepend(const Paragraph&);
         Story operator+(const Story&);
+        Story operator+(const Paragraph&);
         Story operator+(const int&);
         Story& operator++();
         Story& operator--();
@@ -30,7 +33,7 @@ class Story {
         friend std::ostream& operator<<(std::ostream&, const Story&);
         Story* next;
         Paragraph first();
-        Paragraph rest();
+        Story rest();
     private:
         Paragraph* head = nullptr;
         Paragraph* tail = nullptr;

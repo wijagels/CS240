@@ -31,17 +31,29 @@ Sentence::Sentence(const Word& head) {
 }
 
 Sentence::Sentence(const Sentence& s) {
-    Word* w = s.head;
-    this->head = new Word(*w);
-    Word* cur = this->head;
-    w = w->next;
-    while(w) {
-        cur->next = new Word(*w);
-        cur = cur->next;
+    if(s.head) {
+        Word* w = s.head;
+        this->head = new Word(*w);
+        Word* cur = this->head;
         w = w->next;
+        while(w) {
+            cur->next = new Word(*w);
+            cur = cur->next;
+            w = w->next;
+        }
+        this->tail = cur;
+        this->terminator = s.terminator;
     }
-    this->tail = cur;
-    this->terminator = s.terminator;
+}
+
+Word Sentence::first() {
+    return Word(*this->head);
+}
+
+Sentence Sentence::rest() {
+    if(this->head->next)
+        return Sentence(*this->head->next);
+    return Sentence();
 }
 
 std::ostream& operator<<(std::ostream& stream, const Sentence& s) {
@@ -57,7 +69,8 @@ std::ostream& operator<<(std::ostream& stream, const Sentence& s) {
 
 void Sentence::append(const Word& other) {
     if(!this->head) {
-        this->head = new Word(other);
+        Word* w = new Word(other);
+        this->head = w;
         this->tail = this->head;
     }
     else {
@@ -66,13 +79,72 @@ void Sentence::append(const Word& other) {
     }
 }
 
+void Sentence::prepend(const Word& other) {
+    if(!this->head) {
+        this->append(other);
+        return;
+    }
+    Word* h = this->head;
+    this->head = new Word(other);
+    this->head->next = h;
+}
+
 void Sentence::setTerm(const char& c) {
     this->terminator = char(c);
 }
 
-Sentence Sentence::operator+(const Sentence& other) {
-    Sentence sen = Sentence(*this);
-    sen.tail->next = new Word(*other.head);
-    sen.tail = new Word(*other.tail);
-    return sen;
+Paragraph Sentence::operator+(const Sentence& other) {
+    Paragraph p = Paragraph(*this);
+    p.append(other);
+    return p;
 }
+
+Paragraph Sentence::operator+(const Paragraph& other) {
+    Paragraph p = Paragraph(other);
+    p.prepend(*this);
+    return p;
+}
+
+Sentence Sentence::operator+(const int& i) {
+    if(i != 1) return *this;
+    if(this->head)
+        this->head->operator+(1);
+    return *this;
+}
+
+Sentence& Sentence::operator++() {
+    Word* word = this->head;
+    while(word) {
+        word->operator++();
+        word = word->next;
+    }
+    return *this;
+}
+
+Sentence& Sentence::operator--() {
+    Word* word = this->head;
+    while(word) {
+        word->operator--();
+        word = word->next;
+    }
+    return *this;
+}
+
+Sentence Sentence::operator++(int) {
+    Word* word = this->head;
+    while(word) {
+        word->operator++(1738);
+        word = word->next;
+    }
+    return *this;
+}
+
+Sentence Sentence::operator--(int) {
+    Word* word = this->head;
+    while(word) {
+        word->operator--(1738);
+        word = word->next;
+    }
+    return *this;
+}
+

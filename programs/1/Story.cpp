@@ -16,6 +16,14 @@ Story::Story(const Paragraph& p) {
     this->tail = insert;
 }
 
+Story::Story(const Story& other) {
+    Paragraph* p = other.head;
+    while(p) {
+        this->append(*p);
+        p = p->next;
+    }
+}
+
 Story::~Story() {
     Paragraph* s = this->head;
     Paragraph* b;
@@ -55,12 +63,16 @@ Story::Story(char* str) {
                 if(loc != -1) {
                     sentence.setTerm(word.at(loc));
                     word.erase(loc);
-                    sentence.append(Word(word.c_str()));
+                    Word* w = new Word(word.c_str());
+                    sentence.append(*w);
+                    delete(w);
                     par.append(sentence);
                     sentence = Sentence();
                 }
                 else {
-                    sentence.append(Word(word.c_str()));
+                    Word* w = new Word(word.c_str());
+                    sentence.append(*w);
+                    delete(w);
                 }
             }
             this->append(par);
@@ -79,6 +91,88 @@ void Story::append(const Paragraph& other) {
         this->tail->next = new Paragraph(other);
         this->tail = this->tail->next;
     }
+}
+
+void Story::prepend(const Paragraph& other) {
+    if(!this->head) {
+        this->append(other);
+        return;
+    }
+    Paragraph *h = this->head;
+    this->head = new Paragraph(other);
+    this->head->next = h;
+}
+
+Paragraph Story::first() {
+    return Paragraph(*this->head);
+}
+
+Story Story::rest() {
+    if(this->head->next)
+        return Story(*this->head->next);
+    return Story();
+}
+
+Story Story::operator+(const Story& other) {
+    Story ret = Story(*this);
+    Paragraph* h = other.head;
+    while(h) {
+        ret.append(*h);
+        h = h->next;
+    }
+    return ret;
+}
+
+Story Story::operator+(const Paragraph& other) {
+    Story ret = Story(*this);
+    ret.append(other);
+    return ret;
+}
+
+Story Story::operator+(const int& i) {
+    if(i != 1) return *this;
+    Paragraph* paragraph = this->head;
+    while(paragraph) {
+        paragraph->operator+(1);
+        paragraph = paragraph->next;
+    }
+    return *this;
+}
+
+Story Story::operator++(int) {
+    Paragraph* paragraph = this->head;
+    while(paragraph) {
+        paragraph->operator++(1738);
+        paragraph = paragraph->next;
+    }
+    return *this;
+}
+
+Story Story::operator--(int) {
+    Paragraph* paragraph = this->head;
+    while(paragraph) {
+        paragraph->operator--(1738);
+        paragraph = paragraph->next;
+    }
+    return *this;
+}
+
+Story& Story::operator++() {
+    Paragraph* paragraph = this->head;
+    while(paragraph) {
+        paragraph->operator++();
+        paragraph = paragraph->next;
+    }
+    return *this;
+}
+
+Story& Story::operator--() {
+    Paragraph* paragraph = this->head;
+    while(paragraph) {
+        paragraph->operator--();
+        paragraph = paragraph->next;
+    }
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Story& story) {
