@@ -33,3 +33,10 @@ tags
 # Core dumps
 core
 vgcore.*
+
+# LaTeX nonsense
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf

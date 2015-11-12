@@ -1,0 +1,17 @@
+50000[sequential] find(multiples of 10,000): 0.002243s, 0.000373833 sec/find
+50000[sequential] find(multiples of 10,000): 0.001732s, 0.000288667 sec/find
+50000[sequential] find(multiples of 10,000): 0.001211s, 0.000201833 sec/find
+50000[random] find(multiples of 10,000): 0.00012s, 2e-05 sec/find
+50000[random] find(multiples of 10,000): 0.000126s, 2.1e-05 sec/find
+50000[random] find(multiples of 10,000): 0.000118s, 1.96667e-05 sec/find
+75000[sequential] find(multiples of 10,000): 0.007535s, 0.000941875 sec/find
+75000[sequential] find(multiples of 10,000): 0.003801s, 0.000475125 sec/find
+75000[sequential] find(multiples of 10,000): 0.002582s, 0.00032275 sec/find
+75000[random] find(multiples of 10,000): 0.000175s, 2.1875e-05 sec/find
+75000[random] find(multiples of 10,000): 0.000186s, 2.325e-05 sec/find
+75000[random] find(multiples of 10,000): 0.000182s, 2.275e-05 sec/find
+100000[sequential] find(multiples of 10,000): 0.019314s, 0.00175582 sec/find
+100000[sequential] find(multiples of 10,000): 0.010411s, 0.000946455 sec/find
+
+Each line is prefixed by the number of nodes and the type of insertion strategy.  It will print 3 per number/insertion combo.  First is with full, second is without multiples of 4 and third is with multiples of 2 removed.  The time spent on find operations for randomly inserted trees was substantially lower than that of sequentially inserted trees.
+Unsurprisingly, the random insertion strategy is the fastest.  Also unsurprisingly, changing the size of the tree doesn't really change run time very much for random, since log(100,000) vs log(50,000) isn't very much.  For sequential, it does affect it very much, because the difference between 100,000 and 50,000 is a lot more.  Removing multiples of 4 or 2 also has the same behavior, it only really matters for the sequential.  For random, thermal throttling and other environmental factors matter more than changing the size of the tree.
