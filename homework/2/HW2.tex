@@ -1,0 +1,141 @@
+\documentclass[tikz, a4paper,12pt]{article}
+\usepackage{tikz}
+\usepackage{listings}
+\usetikzlibrary{graphs,graphdrawing,graphs.standard,arrows.meta}
+\usegdlibrary{trees}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\begin{document}
+\title{Homework 2}
+\author{William Jagels}
+\maketitle
+\section{}
+\subsection{}
+1 down on the left is correct
+\subsection{}
+(e) List$<$Element$>$ mylist; 
+
+\section{}
+\subsection{}
+The compiler will, for each time it needs to use a different type, replace instances of "Type" with whatever the type specified in angle brackets is.
+\subsection{}
+(b) Implement operator$<<$() as a friend function of Collection
+
+\section{}
+\begin{tabular}{l | c}
+    1 & No, infinite loop, it calls itself without modifying the parameter.\\
+    2 & No, infinite loop, no condition where it can return a number\\
+    3 & No, infinite loop, base case of 1 is after recursive call and will never be called\\
+    4 & No, fib4(2) will cause an infinite loop because it will call fib4(0)\\
+    5 & Yes this works for small numbers\\
+    6 & No, fib6(2) will cause fib6(0) to be called\\
+\end{tabular}
+
+\section{}
+\lstset{language=C++}
+\begin{lstlisting}
+    int sumAux(int i, int k) {
+        return k==0 ? 0 : (i%2 == 0) ? i + sumAux(i+1, k-1)
+            : sumAux(i+1, k);
+    }
+    int sum(int i) {
+        return sumAux(0, i);
+    }
+\end{lstlisting}
+
+\section{}
+\par {
+    Yeah sure I'll help you out.
+    Your solution to solve an n+1 tower is going to be very similar to solving the n size tower.
+    So repeat whatever you did for the tower of size n, and add steps to make it work with an extra disk.
+}
+
+\section{}
+\begin{tikzpicture}[>=Stealth]
+    \graph[binary tree layout]{
+        11 -> {
+            5 -> {
+                1,
+            },
+            20 -> {
+                , 70 -> {
+                    33 -> {
+                        ,55 -> {44,}
+                    },88
+                }
+            }
+        }
+    };
+\end{tikzpicture}
+\section{}
+\begin{tikzpicture}[>=Stealth]
+    \graph[binary tree layout]{
+        70 -> {
+            30 -> {
+                10 -> {
+                    0,20
+                },
+                50 -> {
+                    40,
+                }
+            },
+            90 -> {
+                80, 100
+            }
+        }
+    };
+\end{tikzpicture}
+
+\section{}
+\begin{lstlisting}
+    class StringTreeNode {
+        public:
+            std::string data;
+            StringTreeNode* next;
+    };
+\end{lstlisting}
+
+\section{}
+(d) 3 nodes
+
+\section{}
+TUTWTUT
+
+\section{}
+Yup, it can be unbalanced.
+Good thing, or else I wouldn't get to make another tree.
+
+\begin{tikzpicture}[>=Stealth]
+    \graph[binary tree layout]{
+        50 -> {
+            15,
+            70 -> {
+                65 -> {
+                    60, 67
+                },
+                75 -> {
+                    73, 78
+                }
+            }
+        }
+    };
+\end{tikzpicture}
+
+This is unbalanced because 15 is a leaf and is on level 2.
+Since the total levels is more than 3, it's unbalanced.
+
+\section{}
+\begin{tabular}{ l | c }
+  1 & FALSE!  \\
+  2 & TRUE!   \\
+  3 & FALSE!  \\
+  4 & TRUE!   \\
+  5 & FALSE!  \\
+\end{tabular}
+
+\section{}
+(b) Counting sort restricts the range of inputs. Sorts that restrict the range of inputs can run faster than $O(Nlog(N))$.
+
+\section{}
+(e) When two elements have equal values, then their relative order in the input array matches their relative order in the output array.
+
+\end{document}
