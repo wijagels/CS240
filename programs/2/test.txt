@@ -1,0 +1,6 @@
+INIT 17:38:39 100
+ADD Sandstorm, Darude, 00:06:00
+PLAY
+LIKE
+DISLIKE
+QUIT
