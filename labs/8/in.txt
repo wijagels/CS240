@@ -9,3 +9,4 @@ Atlanta Chicago
 Chicago Atlanta
 Chicago New_York
 New_York Atlanta
+TRAVEL New_York Chicago

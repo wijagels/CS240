@@ -21,7 +21,7 @@ gen_obj: $(SOURCES)
 	done
 
 test: linker
-	valgrind ./$(OUTPUT)
+	./$(OUTPUT) in.txt
 
 clean:
 	rm *.o $(OUTPUT)
