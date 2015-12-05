@@ -75,9 +75,10 @@ void commands(Instream& in) {
         ss >> s;
         if(s == "HOME") {
             ss >> s;
-            std::cout << s << std::endl;
             auto it = std::find(v.begin(), v.end(), City(s));
-            home(*it);
+            if(!home(*it)) {
+                std::cout << "No" << std::endl;
+            }
         }
         else if(s == "TRAVEL") {
             std::string c1, c2;
@@ -88,12 +89,20 @@ void commands(Instream& in) {
             if(!path(*it, *itt))
                 std::cout << "No path" << std::endl;
         }
+        for(auto i : v) {
+            i.color = false;
+            for(auto ii : i.edges) {
+                ii->color = false;
+            }
+        }
     }
 }
 
 bool home(City& h) {
+    std::queue<City> q;
+    q.push(h);
     for(auto i : h.edges) {
-        if(path(*i, h)) return true;
+        if(auxPath(*i, h, q)) return true;
     }
     return false;
 }
@@ -111,8 +120,9 @@ bool path(City& from, City& to) {
 }
 
 bool auxPath(City& from, City& to, std::queue<City> q) {
-    if(from.color)
+    if(from.color) {
         return false;
+    }
     q.push(from);
     from.color = true;
     if(from == to) {

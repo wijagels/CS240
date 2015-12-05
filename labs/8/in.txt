@@ -10,3 +10,5 @@ Chicago Atlanta
 Chicago New_York
 New_York Atlanta
 TRAVEL New_York Chicago
+HOME New_York
+HOME Boston
