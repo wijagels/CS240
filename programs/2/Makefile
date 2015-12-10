@@ -1,9 +1,9 @@
 CPPC=g++
 
-CFLAGS=-std=c++11 -g
-SOURCES=Time.cpp Song.cpp Songs.cpp Main.cpp
+CFLAGS=-std=c++11 -g -Wall -Wextra
+SOURCES=Time.cpp Song.cpp Songs.cpp Radio.cpp HashHeap.cpp Main.cpp
 
-OBJ=Time.o Song.o Songs.o Main.o
+OBJ=Time.o Song.o Songs.o HashHeap.o Radio.o Main.o
 
 OUTPUT=prog2
 
@@ -21,10 +21,7 @@ gen_obj: $(SOURCES)
 	done
 
 test: linker
-	echo "RUN test.txt" | ./prog2
-
-optest: gen_obj
-	$(CPPC) $(CFLAGS) $(OBJ) testProgram.o -o testProgram
+	echo "RUN in.txt" | ./prog2
 
 clean:
 	rm *.o $(OUTPUT)

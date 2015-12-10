@@ -6,11 +6,15 @@
 class Time {
     public:
         Time();
-        Time(long int);
+        explicit Time(int);
         Time(std::string);
-        long int increment(long int);
-        long int increment(Time);
-        std::string human();
+        Time(std::string, bool);
+        int increment(int);
+        int increment(Time);
+        std::string human() const;
+        operator int() const;
 
-        long int sec = 0;
+    private:
+        int sec = 0;
+        bool music = false;
 };

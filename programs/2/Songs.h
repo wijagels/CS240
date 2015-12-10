@@ -1,5 +1,7 @@
+#pragma once
 #include "Song.h"
 #include "Time.h"
+#include "HashHeap.h"
 class Song;
 
 class Songs {
@@ -11,5 +13,5 @@ class Songs {
         Time time;
         int max = 0;
         int size = 0;
-        Song* sarr;
+        HashHeap<Song> hh;
 };
