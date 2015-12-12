@@ -4,6 +4,7 @@
 class Song {
     public:
         Song();
+        Song(std::string);
         Song(std::string, std::string, Time);
         void updoot();
         void downdoot();
@@ -17,4 +18,5 @@ class Song {
         friend bool operator>(const Song&, const Song&);
         friend bool operator<(const Song&, const Song&);
         friend std::ostream & operator<< (std::ostream &os, const Song&);
+        friend bool operator==(const Song&, const Song&);
 };

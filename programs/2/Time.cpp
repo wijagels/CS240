@@ -14,7 +14,7 @@ Time::Time(std::string s) {
     int i = s.find(":");
     for(int k = 0;k < 3;k++) {
         // Warning, ninja coding ahead.
-        this->sec += std::stoi(s.substr(p, 2)) *(k==0 ? 3600 : k==1 ? 60 : 1);
+        this->sec += std::stoi(s.substr(p, 2)) * (k==0 ? 3600 : k==1 ? 60 : 1);
         p = i+1;
         i = s.find(":", i+1);
     }
@@ -27,7 +27,7 @@ Time::Time(std::string s, bool b) {
     int i = s.find(":");
     for(int k = 0;k < 2;k++) {
         // Warning, ninja coding ahead.
-        this->sec += std::stoi(s.substr(p, 2)) *(k==0 ? 60 : 1);
+        this->sec += std::stoi(s.substr(p, 2)) * (k==0 ? 60 : 1);
         p = i+1;
         i = s.find(":", i+1);
     }
@@ -68,4 +68,3 @@ std::string Time::human() const {
 Time::operator int() const {
     return this->sec;
 }
-

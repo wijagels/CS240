@@ -34,9 +34,10 @@ void HashHeap<T>::heapify_up(int i) {
 
 template <typename T>
 void HashHeap<T>::heapify_down(int i) {
+    if(i >= back)
+        return;
     if(arr[i] < arr[2*i+1])
         swap(i, 2*i+1);
-    return;
     if(arr[i] < arr[2*i+2])
         swap(i, 2*i+2);
     return;
@@ -63,11 +64,18 @@ T HashHeap<T>::pop_max() {
     T popped = arr[0];
     swap(0, back-1);
     back--;
+    heapify_down(0);
+    return popped;
 }
 
 template <typename T>
-T& HashHeap<T>::find(const T& item) {
-    return std::find(std::begin(arr), std::end(arr), item);
+int HashHeap<T>::find(const T& item) {
+    //return std::find(std::begin(arr), std::end(arr), item);
+    for(int i=0;i<back;i++) {
+        if(arr[i] == item)
+            return i;
+    }
+    throw 0;
 }
 
 template <typename T>
@@ -81,7 +89,7 @@ std::ostream& operator<<(std::ostream &os, const HashHeap<T>& hh) {
     }
     os << std::endl << "Array representation" << std::endl;
     for(int i=0;i<hh.back;i++)
-        std::cout << hh.arr[i] << " ";
+        os << hh.arr[i] << " ";
     return os;
 }
 #endif

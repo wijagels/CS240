@@ -13,8 +13,7 @@ class HashHeap {
         void swap(int, int);
         T max();
         T pop_max();
-        T& find(const T&);
-    private:
+        int find(const T&);
         T* arr;
         int size = 0;
         int back = 0;

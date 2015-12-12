@@ -12,4 +12,6 @@ class Radio {
         bool logic(std::istringstream*);
     private:
         Songs song_list;
+        Time time;
+        Song last;
 };

@@ -3,6 +3,8 @@
 Song::Song() {
 }
 
+Song::Song(std::string n) : title(n) {}
+
 Song::Song(std::string n, std::string a, Time t) : title(n), artist(a), runtime(t) {}
 
 void Song::updoot() {
@@ -42,6 +44,12 @@ bool operator<(const Song& s1, const Song& s2) {
 }
 
 std::ostream & operator<< (std::ostream &os, const Song& song) {
-    os << song.artist << " " << song.title << " " << song.runtime.human();
+    os << song.artist << " " << song.title << " " << song.runtime.human() << " " <<
+        song.score(song.last);
     return os;
+}
+
+
+bool operator==(const Song& s1, const Song& s2) {
+    return s1.title == s2.title;
 }
