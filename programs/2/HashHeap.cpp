@@ -5,6 +5,7 @@
 template <typename T>
 HashHeap<T>::HashHeap(int size) {
     arr = new T[size];
+    ht = new std::list<std::pair<T, int>>[size];
     this->size = size;
 }
 
@@ -18,6 +19,7 @@ bool HashHeap<T>::insert(const T& item) {
         return false;
     arr[back] = item;
     heapify_up(back);
+    insertKey(item, back);
     back++;
     return true;
 }
@@ -50,6 +52,16 @@ void HashHeap<T>::swap(int first, int second) {
     s = arr[second];
     arr[first] = s;
     arr[second] = f;
+    int inf = hash(f);
+    int ins = hash(s);
+    for(auto i : ht[inf]) {
+        if(i.first == f)
+            i.second = second;
+    }
+    for(auto i : ht[ins]) {
+        if(i.first == s)
+            i.second = first;
+    }
 }
 
 template <typename T>
@@ -70,12 +82,39 @@ T HashHeap<T>::pop_max() {
 
 template <typename T>
 int HashHeap<T>::find(const T& item) {
-    //return std::find(std::begin(arr), std::end(arr), item);
-    for(int i=0;i<back;i++) {
+    for(int i=0;i<size;i++)
         if(arr[i] == item)
             return i;
+    int index = hash(item);
+    for(auto el : ht[index]) {
+        if(el.first == item)
+            return el.second;
     }
+    // for(int i=0;i<back;i++) {
+    //     if(arr[i] == item)
+    //         return i;
+    // }
     throw 0;
+}
+
+template <typename T>
+int HashHeap<T>::hash(const T& item) {
+    int sum = 0;
+    for(char c : item.title)
+        sum += c;
+    return sum % size;
+}
+
+template <typename T>
+void HashHeap<T>::insertKey(const T& item, int index) {
+    int i = hash(item);
+    for(auto it : ht[i]) {
+        if(it.first == item) {
+            it.second = index;
+            return;
+        }
+    }
+    ht[i].push_back(std::pair<T, int>(item, index));
 }
 
 template <typename T>

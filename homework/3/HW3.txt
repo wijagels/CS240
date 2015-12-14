@@ -1,0 +1,36 @@
+1. O(n^2)
+    First level for loop happens N times.  Second level also happens N times.  N*N = N^2
+
+2. O(n logn)
+    Heap has n elements to remove, and it takes logn time to remove the top due to percolation.
+
+3. O(logn)
+    More specifically, log base 3 of n because each time the number is thirded
+
+4. O(n logn)
+    First level for loop happens N times.  Second level happens logn times because of the j*=2
+
+5. O(logn)
+    Each recurse, the number is halved.
+
+6. O(1)
+    Or constant time.  This doesn't depend on any external numbers.
+
+7. O(n)
+    If we're getting technical, this is completely broken because the recursive function call doesn't pass the parameters in the correct order.
+    Once this function is fixed, it's just a really really bad linear search, hence the n.
+
+8. O(n)
+    This is just a for loop that goes from 0-N.  The two operations inside are constant time operations.
+
+9. O(n)
+    Same as 8, swap is probably a constant time operation.
+
+10. O(n^2 logn)
+    heapsort is n logn, scramble is n, and the outer for loop does everything n times. n(n logn + n) = n^2 logn
+
+11. O(|E| log|V|)
+    For each edge, the heap has to extract the min vertex, which runs in log|V| time
+
+12. O(|E| * |V|)
+    Has to extract min vertex again, but this time extracting takes |V| time because doubly linked lists have to be searched linearly.

@@ -75,6 +75,7 @@ bool Radio::logic(std::istringstream* s) {
         if(song.empty())
             song = last.title;
         int found = song_list.hh.find(Song(song));
+        std::cout << "Found: " << song << " : " << song_list.hh.arr[found] << std::endl;
         song_list.hh.arr[found].updoot();
         song_list.hh.heapify_up(found);
         // std::cout << "Thanks for the like command" << std::endl;
