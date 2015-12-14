@@ -11,8 +11,7 @@ int main() {
         Radio r = Radio();
         std::string s;
         std::getline(std::cin, s);
-        std::istringstream ss;
-        ss = std::istringstream(s);
+        std::istringstream ss(s);
         mkay = r.logic(&ss);
     }
     // HashHeap<int> hh(100);
